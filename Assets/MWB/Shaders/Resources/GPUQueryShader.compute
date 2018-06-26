@@ -1,0 +1,54 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel QuadSelection
+#pragma kernel PointSelection
+
+#include "MWBStrcuture.cginc"
+#include "MWBMath.cginc"
+
+// Create a RenderTexture with enableRandomWrite flag and set it
+// with cs.SetTexture
+
+int _pixelWidth;
+int _pixelHeight;
+float4x4 _world2Screen;
+
+// quad
+float4 _rect;
+
+// point
+float3 _mousePoint;
+
+RWStructuredBuffer<line_data> Input;
+RWStructuredBuffer<float> Output;
+
+[numthreads(8,8,1)]
+void QuadSelection (uint3 id : SV_DispatchThreadID)
+{
+	line_data data = Input[id.x];
+
+	float2 pp1 = manual_world2Screen_point(data.begin, _world2Screen, _pixelWidth, _pixelHeight);
+	float2 pp2 = manual_world2Screen_point(data.end, _world2Screen, _pixelWidth, _pixelHeight);
+	 
+	float3 middle = float3(_rect.x + _rect.y, _rect.z + _rect.w, 0) / 2;
+
+	float3 closest = project_point_on_line_seg(float3(pp1, 0), float3(pp2, 0), middle);
+	 
+	if (rect_contain_pt(_rect, closest.xy) > 0)
+		Output[id.x] = 1;
+	else
+		Output[id.x] = -1;
+
+}
+
+[numthreads(8, 8, 1)]
+void PointSelection(uint3 id : SV_DispatchThreadID)
+{
+	line_data data = Input[id.x];
+
+	float2 pp1 = manual_world2Screen_point(data.begin, _world2Screen, _pixelWidth, _pixelHeight);
+	float2 pp2 = manual_world2Screen_point(data.end, _world2Screen, _pixelWidth, _pixelHeight);
+
+	float3 proj = project_point_on_line_seg(float3(pp1, 0), float3(pp2, 0), _mousePoint);
+
+	Output[id.x] = sqrMagnitude(proj - _mousePoint);
+} 
