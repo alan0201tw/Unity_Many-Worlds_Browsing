@@ -1,5 +1,10 @@
 # Many-World Browsing In Unity (MWB)
 
+## Abstract
+Animation is mostly customized and rigged by animators. However, it is non-trivial for an animator to animate not only wanting but also plausible animation sequences. 
+
+In order to help game developers, we take D. Twigg, D. James and his colleagues’ work, Many-Worlds Browsing for Control of Multibody Dynamics, as reference and implement their system in Unity Engine.
+
 ## Introduction
 This is a Unity native physic-based animation aiding system. Aiming to generate plausible paths for lots of Rigidbodies and still remain the ability to customize your personal animation target.
 
@@ -24,12 +29,16 @@ To select an animation, you can either click on the scene view window or drag to
 
 To export an animation, first select a path and press the record button in MWB Anim window. After saving it, you can remove all the MWB components and rigidbodies and colliders in you physic system, and apply the animation to it. You should see the simulated path now being played as Unity's native animation.
 
-## Demo
+## DemoVideo
 
-<video width="320" height="240" controls>
-  <source src="DemoVideo/Demo.mp4" type="video/mp4">
-</video>
+https://youtu.be/Al0TpS5JPJk
 
 ## Credit
 
 This project is developed by Alan Shih and David Yu as an undergraduate independent research in NCTU, Taiwan.
+
+## Reference
+
+TWIGG, C. D., AND JAMES, D. L. 2007.
+Many-worlds browsing for control of multibody dynamics
+http://graphics.cs.cmu.edu/projects/mwb/
