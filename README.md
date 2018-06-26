@@ -20,6 +20,10 @@ WorldForkedOnCollision : the count of worlds forked when a valid collision happe
 
 Physics Setup/Threshold Coef : a coefficient used to determine whether a collision is valid. A valid collision is a collision with impulse magnitude greater than this coefficient multiply by the object's mass( in rigidbody ).
 
+To select an animation, you can either click on the scene view window or drag to create a quad. Selected paths will be highlighted as yellow.
+
+To export an animation, first select a path and press the record button in MWB Anim window. After saving it, you can remove all the MWB components and rigidbodies and colliders in you physic system, and apply the animation to it. You should see the simulated path now being played as Unity's native animation.
+
 ## Credit
 
 This project is developed by Alan Shih and David Yu as an undergraduate independent research in NCTU, Taiwan.
