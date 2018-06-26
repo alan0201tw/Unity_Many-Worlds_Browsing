@@ -24,6 +24,12 @@ To select an animation, you can either click on the scene view window or drag to
 
 To export an animation, first select a path and press the record button in MWB Anim window. After saving it, you can remove all the MWB components and rigidbodies and colliders in you physic system, and apply the animation to it. You should see the simulated path now being played as Unity's native animation.
 
+## Demo
+
+<video width="320" height="240" controls>
+  <source src="DemoVideo/Demo.mp4" type="video/mp4">
+</video>
+
 ## Credit
 
 This project is developed by Alan Shih and David Yu as an undergraduate independent research in NCTU, Taiwan.
