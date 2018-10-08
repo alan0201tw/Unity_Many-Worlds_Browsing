@@ -35,7 +35,7 @@ https://youtu.be/Al0TpS5JPJk
 
 ## Credit
 
-This project is developed by [Alan Shih](https://github.com/alan0201tw) and [David Yu](https://github.com/ta-david-yu) as an undergraduate independent research in NCTU, Taiwan.
+This project is developed by [Alan Shih](https://github.com/alan0201tw) , [David Yu](https://github.com/ta-david-yu) and 張偉聖 as an undergraduate independent research in NCTU, Taiwan.
 
 ## Reference
 
